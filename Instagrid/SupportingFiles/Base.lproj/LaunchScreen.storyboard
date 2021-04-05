@@ -2,16 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ThirstySoftRegular.otf">
-            <string>ThirstySoftRegular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -21,29 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XU-Yg-06s">
-                                <rect key="frame" x="20" y="430.5" width="374" height="35"/>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="Tro-uE-T7g">
+                                <rect key="frame" x="129.5" y="425.5" width="155" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gz1-YS-AEC"/>
+                                    <constraint firstAttribute="width" constant="155" id="lU0-HI-HdZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightBlue"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9XU-Yg-06s" secondAttribute="trailing" constant="20" id="0b7-AP-qWe"/>
-                            <constraint firstItem="9XU-Yg-06s" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OQf-d4-t50"/>
-                            <constraint firstItem="9XU-Yg-06s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eGc-QO-0Wg"/>
-                            <constraint firstItem="9XU-Yg-06s" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lzL-xa-7VX"/>
+                            <constraint firstItem="Tro-uE-T7g" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Fvm-mz-lgo"/>
+                            <constraint firstItem="Tro-uE-T7g" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Opg-Y2-zBW"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Instagrid" width="41.5" height="13"/>
         <namedColor name="lightBlue">
             <color red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
