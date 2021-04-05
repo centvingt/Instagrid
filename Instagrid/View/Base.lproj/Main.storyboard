@@ -26,19 +26,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                <rect key="frame" x="206.66666666666666" y="244" width="15" height="15"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
+                                <rect key="frame" x="0.0" y="106" width="428" height="192"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
+                                        <rect key="frame" x="206.66666666666666" y="138" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
+                                            <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
+                                        <rect key="frame" x="20" y="163" width="388" height="29"/>
+                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
-                                    <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
+                                    <constraint firstAttribute="trailing" secondItem="AcC-i0-Ui4" secondAttribute="trailing" constant="20" id="FdY-Ya-P7e"/>
+                                    <constraint firstItem="AcC-i0-Ui4" firstAttribute="leading" secondItem="gty-1B-nFP" secondAttribute="leading" constant="20" id="ZhB-Hj-G9d"/>
+                                    <constraint firstAttribute="bottom" secondItem="AcC-i0-Ui4" secondAttribute="bottom" id="dSi-jz-Fp8"/>
+                                    <constraint firstItem="YOb-bA-Xsk" firstAttribute="centerX" secondItem="gty-1B-nFP" secondAttribute="centerX" id="n4e-wc-oId"/>
+                                    <constraint firstItem="AcC-i0-Ui4" firstAttribute="top" secondItem="YOb-bA-Xsk" secondAttribute="bottom" constant="10" id="wBN-BX-Nxs"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                <rect key="frame" x="20" y="269" width="388" height="29"/>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-TC-AJz">
                                 <rect key="frame" x="64" y="313" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,24 +109,23 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightBlue"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AcC-i0-Ui4" secondAttribute="trailing" constant="20" id="12D-Vd-zLM"/>
-                            <constraint firstItem="YOb-bA-Xsk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2eM-hD-ah8"/>
                             <constraint firstItem="Pxa-TC-AJz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6a5-70-bsj"/>
-                            <constraint firstItem="Pxa-TC-AJz" firstAttribute="top" secondItem="AcC-i0-Ui4" secondAttribute="bottom" constant="15" id="7Ne-0V-LwO"/>
-                            <constraint firstItem="AcC-i0-Ui4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9Wz-CT-qpx"/>
-                            <constraint firstItem="AcC-i0-Ui4" firstAttribute="top" secondItem="YOb-bA-Xsk" secondAttribute="bottom" constant="10" id="BYC-KZ-Omv"/>
+                            <constraint firstItem="gty-1B-nFP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6sS-QU-T5P"/>
+                            <constraint firstItem="gty-1B-nFP" firstAttribute="top" secondItem="v8V-Xd-SzR" secondAttribute="bottom" id="FEC-wt-eF1"/>
                             <constraint firstItem="v8V-Xd-SzR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="MWJ-5l-O0m"/>
                             <constraint firstItem="0qG-M3-2DY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NEN-6e-KG7"/>
                             <constraint firstItem="v8V-Xd-SzR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZUh-An-aVM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0qG-M3-2DY" secondAttribute="bottom" constant="20" id="bSw-50-VBq"/>
                             <constraint firstItem="Pxa-TC-AJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hOW-U6-VvT"/>
+                            <constraint firstItem="Pxa-TC-AJz" firstAttribute="top" secondItem="gty-1B-nFP" secondAttribute="bottom" constant="15" id="jXI-bH-DCt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v8V-Xd-SzR" secondAttribute="trailing" constant="20" id="ocV-Pj-BHq"/>
+                            <constraint firstItem="gty-1B-nFP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uBU-5l-oJL"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="137.38317757009344" y="137.36501079913609"/>
         </scene>
     </scenes>
     <resources>
