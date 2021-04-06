@@ -67,5 +67,7 @@
 		<string>Delm-Medium.otf</string>
 		<string>ThirstySoftRegular.otf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Merci d’autoriser Instagrid à accéder à votre gallerie d’images.</string>
 </dict>
 </plist>

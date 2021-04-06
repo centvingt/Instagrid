@@ -21,11 +21,15 @@ class ViewController: UIViewController {
         }
     }
     
+    private var grid = Grid()
+    
+    private var activeIndexImage = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func button0DidTouched(_ sender: Any) {
         buttons.forEach { (button) in
             button.isSelected = false
@@ -59,15 +63,28 @@ extension ViewController: UICollectionViewDataSource {
             withReuseIdentifier: "cell",
             for: indexPath
         ) as? CollectionViewCell else { return UICollectionViewCell() }
+        
+        if let image = grid.images[indexPath.item] {
+            cell.image.image = image
+            cell.image.isHidden = false
+        } else {
+            cell.image.image = UIImage()
+            cell.image.isHidden = true
+        }
+        
         return cell
     }
 }
 extension ViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        activeIndexImage = indexPath.item
+        presentActionSheet()
+    }
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
+        
         var size = CGSize(
             width: (collectionViewWidth - 45) / 2,
             height: (collectionViewWidth - 45) / 2
@@ -75,6 +92,48 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         if (layout == .layout0 && indexPath.item == 0) || (layout == .layout1 && indexPath.item == 2) {
             size.width = collectionViewWidth - 30
         }
+        
         return size
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        self.grid.images[self.activeIndexImage] = image
+        
+        collectionView.reloadData()
+    }
+    
+    func presentActionSheet() {
+        let photoLibraryAction = UIAlertAction(
+            title: "Choisir dans la galerie",
+            style: .default
+        ) { (action) in
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = .photoLibrary
+            
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(
+            title: "Annuler",
+            style: .cancel,
+            handler: nil
+        )
+        
+        let alert = UIAlertController(
+            title: nil,
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        alert.addAction(photoLibraryAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

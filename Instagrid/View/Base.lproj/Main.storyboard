@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -20,14 +20,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
-                                <rect key="frame" x="0.0" y="93" width="375" height="158"/>
+                                <rect key="frame" x="0.0" y="45" width="375" height="133.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                        <rect key="frame" x="180" y="104" width="15" height="15"/>
+                                        <rect key="frame" x="180" y="78" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
                                             <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
@@ -35,7 +35,7 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                        <rect key="frame" x="20" y="124" width="335" height="29"/>
+                                        <rect key="frame" x="20" y="98" width="335" height="30.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -93,14 +93,14 @@
                                 </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-TC-AJz">
-                                <rect key="frame" x="37.666666666666657" y="256" width="300" height="300"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <color key="backgroundColor" name="darkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="87R-U2-e3D"/>
                                     <constraint firstAttribute="width" constant="300" id="Kp0-QE-ahk"/>
                                     <constraint firstAttribute="width" secondItem="Pxa-TC-AJz" secondAttribute="height" multiplier="1:1" id="Zgq-l5-oE2"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="15" minimumInteritemSpacing="15" id="pZf-jZ-ASx">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="pZf-jZ-ASx">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -121,13 +121,23 @@
                                                         <constraint firstAttribute="width" constant="40" id="e4W-4r-xev"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-Hv-aTN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="lightGrey"/>
                                             <constraints>
                                                 <constraint firstItem="gKl-Mb-lcO" firstAttribute="centerX" secondItem="G0X-K3-Gf8" secondAttribute="centerX" id="7kc-z4-yw1"/>
+                                                <constraint firstItem="5Pq-Hv-aTN" firstAttribute="top" secondItem="G0X-K3-Gf8" secondAttribute="top" id="Bev-km-8uZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Pq-Hv-aTN" secondAttribute="bottom" id="cpP-bS-BQk"/>
                                                 <constraint firstItem="gKl-Mb-lcO" firstAttribute="centerY" secondItem="G0X-K3-Gf8" secondAttribute="centerY" id="fq1-5J-I1g"/>
+                                                <constraint firstItem="5Pq-Hv-aTN" firstAttribute="leading" secondItem="G0X-K3-Gf8" secondAttribute="leading" id="iaf-dJ-nfq"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Pq-Hv-aTN" secondAttribute="trailing" id="oia-iI-dEK"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="image" destination="5Pq-Hv-aTN" id="I6Q-hH-u9G"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="default">
@@ -148,7 +158,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
-                                <rect key="frame" x="20" y="54" width="335" height="39"/>
+                                <rect key="frame" x="20" y="10" width="335" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
                                 </constraints>
@@ -167,7 +177,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0qG-M3-2DY">
-                                <rect key="frame" x="47.666666666666629" y="678" width="280" height="80"/>
+                                <rect key="frame" x="47.5" y="567" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqb-i3-e7L">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -240,7 +250,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v8V-Xd-SzR" secondAttribute="trailing" constant="20" id="ocV-Pj-BHq">
                                 <variation key="heightClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="Pxa-TC-AJz" firstAttribute="top" secondItem="v8V-Xd-SzR" secondAttribute="bottom" constant="10" id="u6T-Y6-7ZE"/>
+                            <constraint firstItem="Pxa-TC-AJz" firstAttribute="top" secondItem="v8V-Xd-SzR" secondAttribute="bottom" constant="10" id="u6T-Y6-7ZE">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="gty-1B-nFP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uBU-5l-oJL"/>
                         </constraints>
                         <variation key="default">
@@ -288,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="135.21126760563379"/>
+            <point key="canvasLocation" x="134.78260869565219" y="134.59821428571428"/>
         </scene>
     </scenes>
     <resources>
