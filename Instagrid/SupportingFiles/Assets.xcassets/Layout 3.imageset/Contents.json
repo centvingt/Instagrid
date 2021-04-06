@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Layout 3.png",
+      "filename" : "Layout 3.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Layout 3@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Layout 3@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

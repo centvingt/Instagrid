@@ -15,6 +15,7 @@
 		2F14FE2E261AE37900AD1E45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F14FE2C261AE37900AD1E45 /* LaunchScreen.storyboard */; };
 		2F14FE43261B111400AD1E45 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F14FE41261B111400AD1E45 /* Delm-Medium.otf */; };
 		2F14FE44261B111400AD1E45 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F14FE42261B111400AD1E45 /* ThirstySoftRegular.otf */; };
+		2FF431BA261C9EF700E7D79C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF431B9261C9EF700E7D79C /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2F14FE2F261AE37900AD1E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F14FE41261B111400AD1E45 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		2F14FE42261B111400AD1E45 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		2FF431B9261C9EF700E7D79C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				2F14FE27261AE37100AD1E45 /* Main.storyboard */,
+				2FF431B9261C9EF700E7D79C /* CollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			files = (
 				2F14FE26261AE37000AD1E45 /* ViewController.swift in Sources */,
 				2F14FE22261AE37000AD1E45 /* AppDelegate.swift in Sources */,
+				2FF431BA261C9EF700E7D79C /* CollectionViewCell.swift in Sources */,
 				2F14FE24261AE37000AD1E45 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

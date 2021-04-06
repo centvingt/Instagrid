@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,14 +20,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
-                                <rect key="frame" x="0.0" y="93" width="428" height="215"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="158"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                        <rect key="frame" x="206.66666666666666" y="166" width="15" height="15"/>
+                                        <rect key="frame" x="180" y="104" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
                                             <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
@@ -36,7 +35,7 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                        <rect key="frame" x="20" y="186" width="388" height="29"/>
+                                        <rect key="frame" x="20" y="124" width="335" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -65,7 +64,7 @@
                                     <constraint firstAttribute="trailing" secondItem="AcC-i0-Ui4" secondAttribute="trailing" constant="20" id="FdY-Ya-P7e"/>
                                     <constraint firstAttribute="trailing" secondItem="AcC-i0-Ui4" secondAttribute="trailing" id="JaU-rd-SOF"/>
                                     <constraint firstItem="AcC-i0-Ui4" firstAttribute="leading" secondItem="gty-1B-nFP" secondAttribute="leading" constant="20" id="ZhB-Hj-G9d"/>
-                                    <constraint firstAttribute="bottom" secondItem="AcC-i0-Ui4" secondAttribute="bottom" id="dSi-jz-Fp8"/>
+                                    <constraint firstAttribute="bottom" secondItem="AcC-i0-Ui4" secondAttribute="bottom" constant="5" id="dSi-jz-Fp8"/>
                                     <constraint firstItem="YOb-bA-Xsk" firstAttribute="centerX" secondItem="gty-1B-nFP" secondAttribute="centerX" id="n4e-wc-oId"/>
                                     <constraint firstItem="AcC-i0-Ui4" firstAttribute="leading" secondItem="gty-1B-nFP" secondAttribute="leading" id="tEj-tf-EFj"/>
                                     <constraint firstItem="AcC-i0-Ui4" firstAttribute="top" secondItem="YOb-bA-Xsk" secondAttribute="bottom" constant="5" id="wBN-BX-Nxs"/>
@@ -94,26 +93,40 @@
                                 </variation>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-TC-AJz">
-                                <rect key="frame" x="64" y="313" width="300" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="37.666666666666657" y="256" width="300" height="300"/>
+                                <color key="backgroundColor" name="darkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="87R-U2-e3D"/>
                                     <constraint firstAttribute="width" constant="300" id="Kp0-QE-ahk"/>
                                     <constraint firstAttribute="width" secondItem="Pxa-TC-AJz" secondAttribute="height" multiplier="1:1" id="Zgq-l5-oE2"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pZf-jZ-ASx">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="15" minimumInteritemSpacing="15" id="pZf-jZ-ASx">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Hbe-MH-VgP">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="HfK-8R-jlX" customClass="CollectionViewCell" customModule="Instagrid" customModuleProvider="target">
+                                        <rect key="frame" x="86" y="15" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fLN-kF-aPC">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G0X-K3-Gf8">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="gKl-Mb-lcO">
+                                                    <rect key="frame" x="44" y="44" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="U0Z-qJ-gWZ"/>
+                                                        <constraint firstAttribute="width" constant="40" id="e4W-4r-xev"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="lightGrey"/>
+                                            <constraints>
+                                                <constraint firstItem="gKl-Mb-lcO" firstAttribute="centerX" secondItem="G0X-K3-Gf8" secondAttribute="centerX" id="7kc-z4-yw1"/>
+                                                <constraint firstItem="gKl-Mb-lcO" firstAttribute="centerY" secondItem="G0X-K3-Gf8" secondAttribute="centerY" id="fq1-5J-I1g"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
@@ -131,10 +144,11 @@
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="0Fn-yG-X3G"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CG0-ke-moq"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
-                                <rect key="frame" x="20" y="54" width="388" height="39"/>
+                                <rect key="frame" x="20" y="54" width="335" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
                                 </constraints>
@@ -153,7 +167,7 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0qG-M3-2DY">
-                                <rect key="frame" x="74" y="792" width="280" height="80"/>
+                                <rect key="frame" x="47.666666666666629" y="678" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqb-i3-e7L">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -274,21 +288,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.36501079913609" y="135.98130841121494"/>
+            <point key="canvasLocation" x="135" y="135.21126760563379"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
-        <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
-        <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Layout 3" width="26.666666030883789" height="26.666666030883789"/>
-        <image name="Selected" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="Arrow Left" width="10" height="14"/>
+        <image name="Arrow Up" width="14" height="10"/>
+        <image name="Layout 1" width="80" height="80"/>
+        <image name="Layout 2" width="80" height="80"/>
+        <image name="Layout 3" width="80" height="80"/>
+        <image name="Plus" width="40" height="40"/>
+        <image name="Selected" width="80" height="80"/>
+        <namedColor name="darkBlue">
+            <color red="0.062745098039215685" green="0.40000000000000002" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lightBlue">
             <color red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightGrey">
+            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
