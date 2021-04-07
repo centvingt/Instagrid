@@ -23,11 +23,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
+                                <rect key="frame" x="20" y="10" width="335" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="oDL-Jh-ovh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="oDL-Jh-ovh"/>
+                                    </mask>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
-                                <rect key="frame" x="0.0" y="45" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="49" width="375" height="129.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                        <rect key="frame" x="180" y="78" width="15" height="15"/>
+                                        <rect key="frame" x="180" y="75.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
                                             <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
@@ -35,7 +54,7 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                        <rect key="frame" x="20" y="98" width="335" height="30.5"/>
+                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -95,6 +114,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-TC-AJz">
                                 <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <color key="backgroundColor" name="darkBlue"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="87R-U2-e3D"/>
                                     <constraint firstAttribute="width" constant="300" id="Kp0-QE-ahk"/>
@@ -155,27 +175,9 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="0Fn-yG-X3G"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="CG0-ke-moq"/>
+                                    <outletCollection property="gestureRecognizers" destination="Dlu-lU-ghB" appends="YES" id="0Ne-7d-XZp"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
-                                <rect key="frame" x="20" y="10" width="335" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="oDL-Jh-ovh"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="oDL-Jh-ovh"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0qG-M3-2DY">
                                 <rect key="frame" x="47.5" y="567" width="280" height="80"/>
                                 <subviews>
@@ -293,12 +295,18 @@
                     <connections>
                         <outlet property="collectionView" destination="Pxa-TC-AJz" id="LKy-26-ge3"/>
                         <outlet property="instructions" destination="gty-1B-nFP" id="aKX-7C-TBa"/>
+                        <outlet property="logo" destination="v8V-Xd-SzR" id="ulK-Ue-KPh"/>
                         <outletCollection property="buttons" destination="Qqb-i3-e7L" collectionClass="NSMutableArray" id="r6o-Qj-QCT"/>
                         <outletCollection property="buttons" destination="el4-B0-KA3" collectionClass="NSMutableArray" id="Gl9-qc-Dfr"/>
                         <outletCollection property="buttons" destination="MKp-cd-5Ch" collectionClass="NSMutableArray" id="3fl-CQ-hw3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Dlu-lU-ghB">
+                    <connections>
+                        <action selector="dragCollectionView:" destination="BYZ-38-t0r" id="mf5-er-D3I"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="134.59821428571428"/>
         </scene>

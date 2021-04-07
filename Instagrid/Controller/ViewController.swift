@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var instructions: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var logo: UILabel!
     @IBOutlet var buttons: [UIButton]!
     
     enum Layout {
@@ -25,9 +26,10 @@ class ViewController: UIViewController {
     
     private var activeIndexImage = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        collectionView.reloadData()
     }
     
     @IBAction func button0DidTouched(_ sender: Any) {
@@ -50,6 +52,79 @@ class ViewController: UIViewController {
         }
         buttons[2].isSelected = true
         layout = .layout2
+    }
+    
+    @IBAction func dragCollectionView(_ sender: UIPanGestureRecognizer) {
+        switch sender.state {
+        case .began, .changed: transformCollectionViewWithGesture(sender)
+        case .ended, .cancelled: finishGesture(sender)
+        default: break
+        }
+    }
+    
+    private func transformCollectionViewWithGesture(_ gesture: UIPanGestureRecognizer) {
+        let gestureTranslation = gesture.translation(in: collectionView)
+        
+        let isPortrait = UIDevice.current.orientation.isPortrait
+        
+        let axisGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
+        
+        guard axisGestureTranslation < 0 else { return }
+        
+        let transform = CGAffineTransform(
+            translationX: isPortrait ? 0 : axisGestureTranslation,
+            y: isPortrait ? gestureTranslation.y : 0
+        )
+        
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0.3,
+            usingSpringWithDamping: 0.6,
+            initialSpringVelocity: 5,
+            options: .curveEaseInOut,
+            animations: {
+                self.collectionView.transform = transform
+                self.instructions.transform = transform
+            },
+            completion: nil
+        )
+        
+        let screenSize = isPortrait ? UIScreen.main.bounds.height : UIScreen.main.bounds.width
+        let alpha = 1 - (-axisGestureTranslation / (screenSize / 6))
+        self.instructions.alpha = alpha
+    }
+    private func finishGesture(_ gesture: UIPanGestureRecognizer) {
+        let isPortrait = UIDevice.current.orientation.isPortrait
+
+        let screenSize = isPortrait ? UIScreen.main.bounds.height : UIScreen.main.bounds.width
+        
+        let gestureTranslation = gesture.translation(in: collectionView)
+        
+        let axisGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
+        
+        var transform: CGAffineTransform
+        
+        if -axisGestureTranslation < screenSize / 4 {
+            transform = .identity
+        } else {
+            transform = CGAffineTransform(
+                translationX: isPortrait ? 0 : -screenSize,
+                y: isPortrait ? -screenSize : 0
+            )
+        }
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0.3,
+            usingSpringWithDamping: 0.6,
+            initialSpringVelocity: 5,
+            options: .curveEaseInOut,
+            animations: {
+                self.collectionView.transform = transform
+                self.instructions.transform = transform
+                self.instructions.alpha = 1
+            },
+            completion: nil
+        )
     }
 }
 
