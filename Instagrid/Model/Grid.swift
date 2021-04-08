@@ -9,4 +9,11 @@ import UIKit
 
 struct Grid {
     var images: [UIImage?] = [nil, nil, nil, nil]
+
+    func isGridComplete(_ layout: Layout) -> Bool {
+        if layout == .layout2 {
+            return !images.contains(nil)
+        }
+        return !images[0...1].contains(nil)
+    }
 }

@@ -16,6 +16,7 @@
 		2F14FE43261B111400AD1E45 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F14FE41261B111400AD1E45 /* Delm-Medium.otf */; };
 		2F14FE44261B111400AD1E45 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2F14FE42261B111400AD1E45 /* ThirstySoftRegular.otf */; };
 		2F758D0D261CD07C0011A26E /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F758D0C261CD07C0011A26E /* Grid.swift */; };
+		2F758D27261F12900011A26E /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F758D26261F12900011A26E /* Layout.swift */; };
 		2FF431BA261C9EF700E7D79C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF431B9261C9EF700E7D79C /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		2F14FE41261B111400AD1E45 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		2F14FE42261B111400AD1E45 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		2F758D0C261CD07C0011A26E /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		2F758D26261F12900011A26E /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		2FF431B9261C9EF700E7D79C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2F758D0C261CD07C0011A26E /* Grid.swift */,
+				2F758D26261F12900011A26E /* Layout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				2FF431BA261C9EF700E7D79C /* CollectionViewCell.swift in Sources */,
 				2F758D0D261CD07C0011A26E /* Grid.swift in Sources */,
 				2F14FE24261AE37000AD1E45 /* SceneDelegate.swift in Sources */,
+				2F758D27261F12900011A26E /* Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

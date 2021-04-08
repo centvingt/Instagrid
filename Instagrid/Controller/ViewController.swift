@@ -13,9 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var logo: UILabel!
     @IBOutlet var buttons: [UIButton]!
     
-    enum Layout {
-        case layout0, layout1, layout2
-    }
     private var layout = Layout.layout0 {
         didSet {
             collectionView.reloadData()
@@ -72,12 +69,12 @@ class ViewController: UIViewController {
     
     private func disableButtons(_ gesture: UIPanGestureRecognizer) {
         buttons.forEach{ button in
-            
             button.isEnabled = false
         }
         
-        transformCollectionViewWithGesture(gesture)
+//        transformCollectionViewWithGesture(gesture)
     }
+    
     private func transformCollectionViewWithGesture(_ gesture: UIPanGestureRecognizer) {
         let gestureTranslation = gesture.translation(in: collectionView)
         
@@ -109,6 +106,7 @@ class ViewController: UIViewController {
         let alpha = 1 - (-orientedGestureTranslation / (screenSize / 6))
         self.instructions.alpha = alpha
     }
+    
     private func finishGesture(_ gesture: UIPanGestureRecognizer) {
         let isPortrait = UIApplication.shared.statusBarOrientation == .portrait
 
@@ -142,11 +140,13 @@ class ViewController: UIViewController {
             self.shareGrid()
         }
     }
+    
     private func shareGrid() {
-//        let collectionViewWidth = collectionView.frame.width
-//        let scale = 300 / collectionViewWidth
-//        let transform = CGAffineTransform(scaleX: scale, y: scale)
-//        collectionView.transform = transform
+        guard grid.isGridComplete(layout) else {
+            presentIncompleteGridAlert()
+            
+            return
+        }
 
         let renderer = UIGraphicsImageRenderer(size: collectionView.bounds.size)
         let image = renderer.image { ctx in
@@ -154,10 +154,37 @@ class ViewController: UIViewController {
         }
 
         let items = [image]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(ac, animated: true)
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityViewController, animated: true)
         
-//        self.buttons.forEach({ $0.isEnabled = true })
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0.3,
+            usingSpringWithDamping: 0.6,
+            initialSpringVelocity: 5,
+            options: .curveEaseInOut
+        )  {
+            self.collectionView.transform = .identity
+            self.instructions.transform = .identity
+        } completion: { (true) in
+            self.buttons.forEach({ $0.isEnabled = true })
+        }
+    }
+    
+    private func presentIncompleteGridAlert() {
+        let alert = UIAlertController(
+            title: "Attention !",
+            message: "Votre composition est incomplète, toutes ses images n’y sont pas.",
+            preferredStyle: .alert
+        )
+        alert.addAction(
+            UIAlertAction(
+                title: "J’ai compris",
+                style: .default,
+                handler: nil
+            )
+        )
+        self.present(alert, animated: true)
     }
 }
 
