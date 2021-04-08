@@ -26,6 +26,13 @@ class ViewController: UIViewController {
     
     private var activeIndexImage = 0
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let state = UIControl.State.selected.union(UIControl.State.disabled)
+        buttons.forEach ({ $0.setImage(UIImage(named: "Selected"), for: state) })
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -56,24 +63,33 @@ class ViewController: UIViewController {
     
     @IBAction func dragCollectionView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
-        case .began, .changed: transformCollectionViewWithGesture(sender)
+        case .began: disableButtons(sender)
+        case .changed: transformCollectionViewWithGesture(sender)
         case .ended, .cancelled: finishGesture(sender)
         default: break
         }
     }
     
+    private func disableButtons(_ gesture: UIPanGestureRecognizer) {
+        buttons.forEach{ button in
+            
+            button.isEnabled = false
+        }
+        
+        transformCollectionViewWithGesture(gesture)
+    }
     private func transformCollectionViewWithGesture(_ gesture: UIPanGestureRecognizer) {
         let gestureTranslation = gesture.translation(in: collectionView)
         
-        let isPortrait = UIDevice.current.orientation.isPortrait
+        let isPortrait = UIApplication.shared.statusBarOrientation == .portrait
         
-        let axisGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
+        let orientedGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
         
-        guard axisGestureTranslation < 0 else { return }
+        guard orientedGestureTranslation < 0 else { return }
         
         let transform = CGAffineTransform(
-            translationX: isPortrait ? 0 : axisGestureTranslation,
-            y: isPortrait ? gestureTranslation.y : 0
+            translationX: isPortrait ? 0 : orientedGestureTranslation,
+            y: isPortrait ? orientedGestureTranslation : 0
         )
         
         UIView.animate(
@@ -90,21 +106,21 @@ class ViewController: UIViewController {
         )
         
         let screenSize = isPortrait ? UIScreen.main.bounds.height : UIScreen.main.bounds.width
-        let alpha = 1 - (-axisGestureTranslation / (screenSize / 6))
+        let alpha = 1 - (-orientedGestureTranslation / (screenSize / 6))
         self.instructions.alpha = alpha
     }
     private func finishGesture(_ gesture: UIPanGestureRecognizer) {
-        let isPortrait = UIDevice.current.orientation.isPortrait
+        let isPortrait = UIApplication.shared.statusBarOrientation == .portrait
 
         let screenSize = isPortrait ? UIScreen.main.bounds.height : UIScreen.main.bounds.width
         
         let gestureTranslation = gesture.translation(in: collectionView)
         
-        let axisGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
+        let orientedGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
         
         var transform: CGAffineTransform
         
-        if -axisGestureTranslation < screenSize / 4 {
+        if -orientedGestureTranslation < screenSize / 4 {
             transform = .identity
         } else {
             transform = CGAffineTransform(
@@ -117,14 +133,31 @@ class ViewController: UIViewController {
             delay: 0.3,
             usingSpringWithDamping: 0.6,
             initialSpringVelocity: 5,
-            options: .curveEaseInOut,
-            animations: {
-                self.collectionView.transform = transform
-                self.instructions.transform = transform
-                self.instructions.alpha = 1
-            },
-            completion: nil
-        )
+            options: .curveEaseInOut
+        ) {
+            self.collectionView.transform = transform
+            self.instructions.transform = transform
+            self.instructions.alpha = 1
+        } completion: { (true) in
+            self.shareGrid()
+        }
+    }
+    private func shareGrid() {
+//        let collectionViewWidth = collectionView.frame.width
+//        let scale = 300 / collectionViewWidth
+//        let transform = CGAffineTransform(scaleX: scale, y: scale)
+//        collectionView.transform = transform
+
+        let renderer = UIGraphicsImageRenderer(size: collectionView.bounds.size)
+        let image = renderer.image { ctx in
+            collectionView.drawHierarchy(in: collectionView.bounds, afterScreenUpdates: true)
+        }
+
+        let items = [image]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
+//        self.buttons.forEach({ $0.isEnabled = true })
     }
 }
 

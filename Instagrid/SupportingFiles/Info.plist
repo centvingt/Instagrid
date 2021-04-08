@@ -69,5 +69,7 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Merci d’autoriser Instagrid à accéder à votre gallerie d’images.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Merci d’autoriser Instagrid à sauvegarder des images dans votre gallerie.</string>
 </dict>
 </plist>
