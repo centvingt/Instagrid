@@ -216,10 +216,6 @@
                                 </constraints>
                                 <variation key="heightClass=compact" axis="vertical" spacing="15"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="izf-UT-BmI">
-                                <rect key="frame" x="656" y="20" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="lightBlue"/>
@@ -258,9 +254,6 @@
                             <constraint firstItem="gty-1B-nFP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uBU-5l-oJL"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="izf-UT-BmI"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="7Ij-Gw-u5J"/>
                                 <exclude reference="n5o-VB-Cjh"/>
@@ -272,9 +265,6 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
-                            <mask key="subviews">
-                                <exclude reference="izf-UT-BmI"/>
-                            </mask>
                             <mask key="constraints">
                                 <include reference="7Ij-Gw-u5J"/>
                                 <exclude reference="bSw-50-VBq"/>

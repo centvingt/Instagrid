@@ -157,6 +157,10 @@ class ViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true)
         
+        resetUI()
+    }
+    
+    private func resetUI() {
         UIView.animate(
             withDuration: 0.8,
             delay: 0.3,
@@ -181,7 +185,9 @@ class ViewController: UIViewController {
             UIAlertAction(
                 title: "J’ai compris",
                 style: .default,
-                handler: nil
+                handler: { (acion) in
+                    self.resetUI()
+                }
             )
         )
         self.present(alert, animated: true)
