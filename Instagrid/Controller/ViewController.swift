@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     }
     
     private func shareGrid() {
-        guard grid.isGridComplete(layout) else {
+        guard grid.isComplete(layout) else {
             presentIncompleteGridAlert()
             
             return
