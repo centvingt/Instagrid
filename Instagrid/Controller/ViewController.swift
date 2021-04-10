@@ -13,13 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var logo: UILabel!
     @IBOutlet var buttons: [UIButton]!
     
+    private var grid = Grid()
+
     private var layout = Layout.layout0 {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    private var grid = Grid()
     
     private var activeIndexImage = 0
     
@@ -37,42 +37,40 @@ class ViewController: UIViewController {
     }
     
     @IBAction func button0DidTouched(_ sender: Any) {
-        buttons.forEach { (button) in
-            button.isSelected = false
-        }
+        unselectAllButtons()
         buttons[0].isSelected = true
         layout = .layout0
     }
     @IBAction func button1DidTouched(_ sender: Any) {
-        buttons.forEach { (button) in
-            button.isSelected = false
-        }
+        unselectAllButtons()
         buttons[1].isSelected = true
         layout = .layout1
     }
     @IBAction func button2DidTouched(_ sender: Any) {
-        buttons.forEach { (button) in
-            button.isSelected = false
-        }
+        unselectAllButtons()
         buttons[2].isSelected = true
         layout = .layout2
     }
     
     @IBAction func dragCollectionView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
-        case .began: disableButtons(sender)
+        case .began: disableAllButtons(sender)
         case .changed: transformCollectionViewWithGesture(sender)
         case .ended, .cancelled: finishGesture(sender)
         default: break
         }
     }
     
-    private func disableButtons(_ gesture: UIPanGestureRecognizer) {
+    private func unselectAllButtons() {
+        buttons.forEach { (button) in
+            button.isSelected = false
+        }
+    }
+    
+    private func disableAllButtons(_ gesture: UIPanGestureRecognizer) {
         buttons.forEach{ button in
             button.isEnabled = false
         }
-        
-//        transformCollectionViewWithGesture(gesture)
     }
     
     private func transformCollectionViewWithGesture(_ gesture: UIPanGestureRecognizer) {
@@ -157,10 +155,10 @@ class ViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true)
         
-        resetUI()
+        repositionGrid()
     }
     
-    private func resetUI() {
+    private func repositionGrid() {
         UIView.animate(
             withDuration: 0.8,
             delay: 0.3,
@@ -186,7 +184,7 @@ class ViewController: UIViewController {
                 title: "J’ai compris",
                 style: .default,
                 handler: { (acion) in
-                    self.resetUI()
+                    self.repositionGrid()
                 }
             )
         )
@@ -195,11 +193,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         return layout == .layout2 ? 4 : 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "cell",
             for: indexPath
@@ -217,23 +221,30 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 extension ViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         activeIndexImage = indexPath.item
-        presentActionSheet()
+        presentAlertAction()
     }
 }
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let collectionViewWidth = collectionView.frame.width
         
         var size = CGSize(
             width: (collectionViewWidth - 45) / 2,
             height: (collectionViewWidth - 45) / 2
         )
-        if (layout == .layout0 && indexPath.item == 0) || (layout == .layout1 && indexPath.item == 2) {
+        if (layout == .layout0 && indexPath.item == 0)
+            || (layout == .layout1 && indexPath.item == 2) {
             size.width = collectionViewWidth - 30
         }
-        
         return size
     }
 }
@@ -249,7 +260,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         collectionView.reloadData()
     }
     
-    func presentActionSheet() {
+    func presentAlertAction() {
         let photoLibraryAction = UIAlertAction(
             title: "Choisir dans la galerie",
             style: .default
