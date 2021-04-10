@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
-                                <rect key="frame" x="20" y="10" width="335" height="39"/>
+                                <rect key="frame" x="20" y="10" width="335" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
                                 </constraints>
@@ -43,10 +43,10 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
-                                <rect key="frame" x="0.0" y="49" width="375" height="129.5"/>
+                                <rect key="frame" x="0.0" y="45" width="375" height="133.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                        <rect key="frame" x="180" y="75.5" width="15" height="15"/>
+                                        <rect key="frame" x="180" y="78" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
                                             <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
@@ -54,7 +54,7 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
+                                        <rect key="frame" x="20" y="98" width="335" height="30.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -186,23 +186,23 @@
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="button0DidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PDr-vG-JUl"/>
+                                            <action selector="buttonDidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehu-fE-hFI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el4-B0-KA3">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el4-B0-KA3">
                                         <rect key="frame" x="100" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
-                                            <action selector="button1DidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="atS-SK-xg9"/>
+                                            <action selector="buttonDidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Esh-dq-DMK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKp-cd-5Ch">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKp-cd-5Ch">
                                         <rect key="frame" x="200" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" image="Selected"/>
                                         <connections>
-                                            <action selector="button2DidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hbs-TG-Wp3"/>
+                                            <action selector="buttonDidTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekI-rE-nz7"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum Layout {
+enum Layout: Int {
     case layout0, layout1, layout2
 }

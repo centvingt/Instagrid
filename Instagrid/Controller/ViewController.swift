@@ -36,20 +36,13 @@ class ViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    @IBAction func button0DidTouched(_ sender: Any) {
-        unselectAllButtons()
-        buttons[0].isSelected = true
-        layout = .layout0
-    }
-    @IBAction func button1DidTouched(_ sender: Any) {
-        unselectAllButtons()
-        buttons[1].isSelected = true
-        layout = .layout1
-    }
-    @IBAction func button2DidTouched(_ sender: Any) {
-        unselectAllButtons()
-        buttons[2].isSelected = true
-        layout = .layout2
+    @IBAction func buttonDidTouched(_ sender: UIButton) {
+        buttons.forEach { (button) in
+            button.isSelected = button.tag == sender.tag
+        }
+        
+        guard let layout = Layout(rawValue: sender.tag) else { return }
+        self.layout = layout
     }
     
     @IBAction func dragCollectionView(_ sender: UIPanGestureRecognizer) {
@@ -58,12 +51,6 @@ class ViewController: UIViewController {
         case .changed: transformCollectionViewWithGesture(sender)
         case .ended, .cancelled: finishGesture(sender)
         default: break
-        }
-    }
-    
-    private func unselectAllButtons() {
-        buttons.forEach { (button) in
-            button.isSelected = false
         }
     }
     
@@ -114,9 +101,11 @@ class ViewController: UIViewController {
         
         let orientedGestureTranslation = isPortrait ? gestureTranslation.y : gestureTranslation.x
         
+        let translationIsToShort = -orientedGestureTranslation < screenSize / 4
+        
         var transform: CGAffineTransform
         
-        if -orientedGestureTranslation < screenSize / 4 {
+        if translationIsToShort {
             transform = .identity
         } else {
             transform = CGAffineTransform(
@@ -135,14 +124,15 @@ class ViewController: UIViewController {
             self.instructions.transform = transform
             self.instructions.alpha = 1
         } completion: { (true) in
-            self.shareGrid()
+            if !translationIsToShort {
+                self.shareGrid()
+            }
         }
     }
     
     private func shareGrid() {
         guard grid.isComplete(layout) else {
             presentIncompleteGridAlert()
-            
             return
         }
 
@@ -154,8 +144,15 @@ class ViewController: UIViewController {
         let items = [image]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true)
-        
-        repositionGrid()
+
+        activityViewController.completionWithItemsHandler = {
+            (
+                activityType: UIActivity.ActivityType?,
+                completed: Bool,
+                arrayReturnedItems: [Any]?,
+                error: Error?
+            ) in self.repositionGrid()
+        }
     }
     
     private func repositionGrid() {
