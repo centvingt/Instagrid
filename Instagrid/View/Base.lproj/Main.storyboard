@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8V-Xd-SzR">
-                                <rect key="frame" x="20" y="10" width="335" height="35"/>
+                                <rect key="frame" x="20" y="10" width="335" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="oDL-Jh-ovh"/>
                                 </constraints>
@@ -43,10 +43,10 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gty-1B-nFP">
-                                <rect key="frame" x="0.0" y="45" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="49" width="375" height="129.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-bA-Xsk">
-                                        <rect key="frame" x="180" y="78" width="15" height="15"/>
+                                        <rect key="frame" x="180" y="75.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="GSR-Id-cid"/>
                                             <constraint firstAttribute="height" constant="15" id="NDi-07-zX7"/>
@@ -54,7 +54,7 @@
                                         <variation key="heightClass=compact" image="Arrow Left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-i0-Ui4">
-                                        <rect key="frame" x="20" y="98" width="335" height="30.5"/>
+                                        <rect key="frame" x="20" y="95.5" width="335" height="29"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
@@ -116,7 +116,7 @@
                                 <color key="backgroundColor" name="darkBlue"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="87R-U2-e3D"/>
+                                    <constraint firstAttribute="width" secondItem="Pxa-TC-AJz" secondAttribute="height" multiplier="1:1" id="HcV-DA-l67"/>
                                     <constraint firstAttribute="width" constant="300" id="Kp0-QE-ahk"/>
                                     <constraint firstAttribute="width" secondItem="Pxa-TC-AJz" secondAttribute="height" multiplier="1:1" id="Zgq-l5-oE2"/>
                                 </constraints>
@@ -167,9 +167,8 @@
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="87R-U2-e3D"/>
                                         <exclude reference="Kp0-QE-ahk"/>
-                                        <include reference="Zgq-l5-oE2"/>
+                                        <exclude reference="Zgq-l5-oE2"/>
                                     </mask>
                                 </variation>
                                 <connections>
