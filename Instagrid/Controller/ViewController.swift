@@ -172,13 +172,13 @@ class ViewController: UIViewController {
     
     private func presentIncompleteGridAlert() {
         let alert = UIAlertController(
-            title: "Attention !",
-            message: "Votre composition est incomplète, toutes ses images n’y sont pas.",
+            title: "Warning!",
+            message: "Your composition is incomplete.",
             preferredStyle: .alert
         )
         alert.addAction(
             UIAlertAction(
-                title: "J’ai compris",
+                title: "I got it",
                 style: .default,
                 handler: { (acion) in
                     self.repositionGrid()
