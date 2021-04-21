@@ -86,6 +86,8 @@
 		2F14FE3A261B0E9800AD1E45 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F758D0C261CD07C0011A26E /* Grid.swift */,
+				2F758D26261F12900011A26E /* Layout.swift */,
 				2F14FE25261AE37000AD1E45 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -94,8 +96,6 @@
 		2F14FE3C261B0EE500AD1E45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2F758D0C261CD07C0011A26E /* Grid.swift */,
-				2F758D26261F12900011A26E /* Layout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

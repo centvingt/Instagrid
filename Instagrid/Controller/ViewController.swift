@@ -259,7 +259,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func presentAlertAction() {
         let photoLibraryAction = UIAlertAction(
-            title: "Choisir dans la galerie",
+            title: "Choose a picture in your gallery",
             style: .default
         ) { (action) in
             let imagePickerController = UIImagePickerController()
@@ -270,7 +270,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
         
         let cancelAction = UIAlertAction(
-            title: "Annuler",
+            title: "Cancel",
             style: .cancel,
             handler: nil
         )
